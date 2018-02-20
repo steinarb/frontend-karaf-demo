@@ -1,0 +1,5 @@
+*.lock
+/bundle.js
+/node/
+/node_modules/
+target/

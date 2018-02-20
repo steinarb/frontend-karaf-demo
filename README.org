@@ -1,0 +1,7 @@
+* Testing the frontend-maven-plugin
+
+This is a maven project testing using the [[https://github.com/eirslett/frontend-maven-plugin][frontend-maven-plugin]] to pack and deliver a [[https://reactjs.org][react.js]] project.
+
+What I will try to do, is to pack up a [[https://webpack.js.org][webpack]]'d application as static resources that can be loaded from the classpath.
+
+The idea is then to serve those resources from a servlet.
