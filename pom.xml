@@ -15,6 +15,7 @@
                 <configuration>
                     <nodeVersion>v9.5.0</nodeVersion>
                     <yarnVersion>v1.3.2</yarnVersion>
+                    <workingDirectory>src/main/frontend</workingDirectory>
                 </configuration>
                 <executions>
                     <execution>
