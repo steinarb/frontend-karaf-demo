@@ -6,6 +6,16 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <name>React app test</name>
+
+    <properties>
+        <karaf-feature-name>${project.artifactId}</karaf-feature-name>
+        <Bundle-SymbolicName>no.priv.bang.demos.${project.artifactId}</Bundle-SymbolicName>
+        <maven.bundle.plugin.version>2.5.3</maven.bundle.plugin.version>
+        <karaf.version>4.1.5</karaf.version>
+        <osgi.version>6.0.0</osgi.version>
+        <osgi.service>1.3.0</osgi.service>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -99,6 +109,63 @@
                         <coberturaReport>${basedir}/target/coverage.xml</coberturaReport>
                     </coberturaReports>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>${maven.bundle.plugin.version}</version>
+                <configuration>
+                    <supportedProjectTypes>
+                        <supportedProjectType>jar</supportedProjectType>
+                        <supportedProjectType>bundle</supportedProjectType>
+                        <supportedProjectType>war</supportedProjectType>
+                    </supportedProjectTypes>
+                    <instructions>
+                        <Bundle-SymbolicName>${Bundle-SymbolicName}</Bundle-SymbolicName>
+                        <Import-Package>*</Import-Package>
+                        <Export-Package>!*</Export-Package>
+                        <_removeheaders>
+                            Private-Package,
+                            Include-Resource,
+                            Embed-Dependency,
+                            Embed-Transitive
+                        </_removeheaders>
+                        <!-- Enable processing of OSGI DS component annotations -->
+                        <_dsannotations>*</_dsannotations>
+                        <!-- Enable processing of OSGI metatype annotations -->
+                        <_metatypeannotations>*</_metatypeannotations>
+                    </instructions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>bundle</id>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.karaf.tooling</groupId>
+                <artifactId>karaf-maven-plugin</artifactId>
+                <version>${karaf.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <startLevel>80</startLevel>
+                    <includeTransitiveDependency>false</includeTransitiveDependency>
+                    <aggregateFeatures>false</aggregateFeatures>
+                    <includeProjectArtifact>true</includeProjectArtifact>
+                    <primaryFeatureName>${karaf-feature-name}</primaryFeatureName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-features-file</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>features-generate-descriptor</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
