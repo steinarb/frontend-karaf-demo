@@ -1,6 +1,13 @@
+var path = require('path');
+
+const PATHS = {
+    build: path.join(__dirname, '..', '..', '..', 'target', 'classes')
+};
+
 module.exports = {
     entry: './hello.js',
     output: {
+        path: PATHS.build,
         filename: 'bundle.js'
     },
     resolve: {

@@ -1,5 +1,3 @@
 *.lock
-/node/
-/node_modules/
-bundle.js
+node_modules/
 target/
