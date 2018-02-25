@@ -8,6 +8,7 @@
     <name>React app test</name>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <karaf-feature-name>${project.artifactId}</karaf-feature-name>
         <Bundle-SymbolicName>no.priv.bang.demos.${project.artifactId}</Bundle-SymbolicName>
         <maven.bundle.plugin.version>2.5.3</maven.bundle.plugin.version>
