@@ -5,6 +5,15 @@ This is a maven project testing using the [[https://github.com/eirslett/frontend
 What I will try to do, is to pack up a [[https://webpack.js.org][webpack]]'d application as static resources that can be loaded from the classpath.
 
 The idea is then to serve those resources from a servlet.
+** Status
+
+[[https://travis-ci.org/steinarb/frontend-maven-plugin][file:https://travis-ci.org/steinarb/frontend-maven-plugin.svg?branch=master]] [[https://coveralls.io/r/steinarb/frontend-maven-plugin][file:https://coveralls.io/repos/steinarb/frontend-maven-plugin/badge.svg]] [[https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos/frontend-maven-plugin][file:https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos/frontend-maven-plugin/badge.svg]]
+
+
+*** SonarCloud
+
+[[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-maven-plugin][file:https://sonarcloud.io/api/badges/measure?key=no.priv.bang.demos%3Afrontend-maven-plugin&metric=lines#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-maven-plugin][file:https://sonarcloud.io/api/badges/measure?key=no.priv.bang.demos%3Afrontend-maven-plugin&metric=bugs#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-maven-plugin][file:https://sonarcloud.io/api/badges/measure?key=no.priv.bang.demos%3Afrontend-maven-plugin&metric=new_bugs#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-maven-plugin][file:https://sonarcloud.io/api/badges/measure?key=no.priv.bang.demos%3Afrontend-maven-plugin&metric=vulnerabilities#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-maven-plugin][file:https://sonarcloud.io/api/badges/measure?key=no.priv.bang.demos%3Afrontend-maven-plugin&metric=new_vulnerabilities#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-maven-plugin][file:https://sonarcloud.io/api/badges/measure?key=no.priv.bang.demos%3Afrontend-maven-plugin&metric=code_smells#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-maven-plugin][file:https://sonarcloud.io/api/badges/measure?key=no.priv.bang.demos%3Afrontend-maven-plugin&metric=new_code_smells#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-maven-plugin][file:https://sonarcloud.io/api/badges/measure?key=no.priv.bang.demos%3Afrontend-maven-plugin&metric=coverage#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-maven-plugin][file:https://sonarcloud.io/api/badges/measure?key=no.priv.bang.demos%3Afrontend-maven-plugin&metric=new_coverage#.svg]]
+
 
 ** LICENSE
 
