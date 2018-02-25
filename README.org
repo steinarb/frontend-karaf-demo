@@ -5,3 +5,9 @@ This is a maven project testing using the [[https://github.com/eirslett/frontend
 What I will try to do, is to pack up a [[https://webpack.js.org][webpack]]'d application as static resources that can be loaded from the classpath.
 
 The idea is then to serve those resources from a servlet.
+
+** LICENSE
+
+This maven project is licensed under Apache v2.0.
+
+See the file LICENSE for details.
