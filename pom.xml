@@ -124,6 +124,7 @@
                         <Bundle-SymbolicName>${Bundle-SymbolicName}</Bundle-SymbolicName>
                         <Import-Package>*</Import-Package>
                         <Export-Package>!*</Export-Package>
+                        <Include-Resource>/=target/classes/</Include-Resource>
                         <_removeheaders>
                             Private-Package,
                             Include-Resource,
