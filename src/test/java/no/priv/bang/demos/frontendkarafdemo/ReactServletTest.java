@@ -1,9 +1,7 @@
 package no.priv.bang.demos.frontendkarafdemo;
 
 import static org.junit.Assert.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import static org.mockito.Matchers.anyInt;
+import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import java.io.IOException;
@@ -34,7 +32,7 @@ public class ReactServletTest {
 
         assertEquals("text/html", response.getContentType());
         assertEquals(200, response.getStatus());
-        assertThat(response.getOutput().size(), greaterThan(0));
+        assertThat(response.getOutput().size()).isGreaterThan(0);
     }
 
     @Test
