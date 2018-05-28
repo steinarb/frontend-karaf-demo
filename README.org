@@ -15,6 +15,24 @@ The idea is then to serve those resources from a servlet.
 [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=ncloc#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=bugs#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=vulnerabilities#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=code_smells#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=coverage#.svg]]
 
 
+** Installation on apache
+
+Installation steps:
+ 1. Clone this project and build it:
+    #+BEGIN_EXAMPLE
+      mkdir -p ~/git
+      cd ~/git/
+      git clone https://github.com/steinarb/frontend-karaf-demo.git
+      cd ~/git/frontend-karaf-demo/
+      mvn clean install
+    #+END_EXAMPLE
+ 2. Log in to the karaf console
+ 3. Install the application with the following commands:
+    #+BEGIN_EXAMPLE
+      feature:repo-add mvn:no.priv.bang.demos/frontend-karaf-demo/LATEST/xml/features
+      feature:install frontend-karaf-demo
+    #+END_EXAMPLE
+
 ** LICENSE
 
 This maven project is licensed under Apache v2.0.
