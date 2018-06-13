@@ -5,7 +5,7 @@ const PATHS = {
 };
 
 module.exports = {
-    entry: './hello.jsx',
+    entry: './index.jsx',
     output: {
         path: PATHS.build,
         filename: 'bundle.js'
