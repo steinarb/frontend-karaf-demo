@@ -1,4 +1,5 @@
 *.lock
+*.log
 /.classpath
 /.project
 /.settings/
