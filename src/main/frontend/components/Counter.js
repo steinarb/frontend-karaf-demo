@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+import { increment } from '../actions';
 
-class Counter extends Component {
-    state = { value: 0 };
-
-    countUp() {
-        this.setState({value: this.state.value + 1});
-    }
-
-    countDown() {
-        this.setState({value: this.state.value - 1});
-    }
-
-    render() {
-        return (
-            <p>
-                {this.state.value}
-                <button onClick={() => this.countUp()}>+</button>
-                <button onClick={() => this.countDown()}>-</button>
-            </p>
-        );
-    }
-}
+let Counter = ({value, onIncrement}) => (
+    <p>
+        {value}
+        <button onClick={() => onIncrement(1)}>+</button>
+        <button onClick={() => onIncrement(-1)}>-</button>
+    </p>
+);
+Counter = connect(
+    (state, ownProps) => ({ value: state.value }),
+    (dispatch, ownProps) => ({ onIncrement: (delta) => dispatch(increment(delta)) })
+)(Counter);
 
 export default Counter;
