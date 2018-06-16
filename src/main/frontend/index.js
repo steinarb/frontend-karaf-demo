@@ -1,29 +1,9 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
 
-class Counter extends Component {
-    state = { value: 0 };
+import Counter from "./components/Counter.js";
 
-    countUp() {
-        this.setState({value: this.state.value + 1});
-    }
-
-    countDown() {
-        this.setState({value: this.state.value - 1});
-    }
-
-    render() {
-        return (
-            <p>
-                {this.state.value}
-                <button onClick={() => this.countUp()}>+</button>
-                <button onClick={() => this.countDown()}>-</button>
-            </p>
-        );
-    }
-}
-
-ReactDOM.render(
+render(
     <Counter />,
     document.getElementById('root')
 );
