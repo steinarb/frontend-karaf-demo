@@ -1,12 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
+import { connect, Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
-import reducer from './reducers';
+import { counterReducer } from './reducers';
 import Counter from "./components/Counter.js";
 
-const store = createStore(reducer, { value: 0 });
+const store = createStore(counterReducer, applyMiddleware(thunk));
 
 render(
     <Provider store={store}>

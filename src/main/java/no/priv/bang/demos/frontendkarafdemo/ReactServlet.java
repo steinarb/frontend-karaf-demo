@@ -16,7 +16,10 @@ import org.osgi.service.log.LogService;
 
 import no.priv.bang.osgi.service.adapters.logservice.LogServiceAdapter;
 
-@Component(service={Servlet.class}, property={"alias=/frontend-karaf-demo"} )
+import static no.priv.bang.demos.frontendkarafdemo.ApplicationConstants.*;
+
+
+@Component(service={Servlet.class}, property={"alias=" + APPLICATION_PATH} )
 public class ReactServlet extends HttpServlet {
     private static final long serialVersionUID = 250817058831319271L;
     private final LogServiceAdapter logservice = new LogServiceAdapter();
