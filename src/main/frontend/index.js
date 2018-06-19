@@ -11,7 +11,10 @@ const store = createStore(counterReducer, applyMiddleware(thunk));
 
 render(
     <Provider store={store}>
-        <Counter />
+        <div>
+            <h1>Counting high and low</h1>
+            <Counter />
+        </div>
     </Provider>,
     document.getElementById('root')
 );
