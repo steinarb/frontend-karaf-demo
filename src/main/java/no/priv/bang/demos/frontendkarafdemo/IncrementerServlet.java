@@ -36,6 +36,8 @@ public class IncrementerServlet extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             try(PrintWriter responseBody = response.getWriter()) {
                 responseBody.println("{ \"value\": 0, \"delta\": 0 }");
+            } catch (Exception e2) {
+                // Swallow exception quietly and just return the error code
             }
         }
     }
