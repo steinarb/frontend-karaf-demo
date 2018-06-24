@@ -1,19 +1,13 @@
-import { requestIncrement, receiveIncrement } from "../actions";
-
-export const counter = ({ value }, action) => {
-    return action.type === 'INCREMENT' ? { value: value + action.delta } : { value };
-};
-
 export const counterReducer = (state = { value: 0 }, action) => {
-    if (action.type === 'REQUEST_INCREMENT') {
+    if (action.type === 'INCREMENT_REQUEST') {
         return {
             ...state
         };
     }
-    if (action.type === 'RECEIVE_INCREMENT') {
+    if (action.type === 'INCREMENT_RECEIVE') {
         return {
             ...state,
-            value: action.incrementedCounter.value
+            value: action.value
         };
     }
     return { ...state };
