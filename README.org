@@ -1,10 +1,19 @@
 * Testing the frontend-maven-plugin
 
-This is a maven project testing using the [[https://github.com/eirslett/frontend-maven-plugin][frontend-maven-plugin]] to pack and deliver a [[https://reactjs.org][react.js]] project.
+This is a maven project that is a testbed for delivering [[https://reactjs.org][react.js]] frontends from apache karaf.
 
-What I will try to do, is to pack up a [[https://webpack.js.org][webpack]]'d application as static resources that can be loaded from the classpath.
+The maven config:
+ - uses [[https://github.com/eirslett/frontend-maven-plugin][frontend-maven-plugin]] to [[https://webpack.js.org][webpack]] a  [[https://reactjs.org][react.js]] application into a self-contained bundle.js file that can be served as a static resource
+ - uses [[http://felix.apache.org/components/bundle-plugin/][maven-bundle-plugin]] to create two DS OSGi components that expose the Servlet service that is plugged into an OSGi web whiteboard
+   1. The DS component ReactServlet serves the static resources index.html and bundle.js on the path "/frontend-karaf-demo"
+   2. The DS component IncrementerServlet receives POST requests on  the path "/frontend-karaf-demo/api/increment", parses the POSTed JSON into a bean, increments the value property of the bean, and returns the bean as a JSON object (ie. the servlet is stateless and just increments the value of the POSTed object)
+ - uses [[https://karaf.apache.org/manual/latest/#_using_the_karaf_maven_plugin][karaf-maven-plugin]] to create an [[https://karaf.apache.org/manual/latest/#_features_repositories_2][apache karaf feature repository]] that loads the servlets and ensures that all runtime requirements are in place (the pax web whiteboard extender, the jackson JSON parser). The feature repository is attached to the maven bundle artifact
 
-The idea is then to serve those resources from a servlet.
+The react application uses the following features:
+ - [[https://reactjs.org][react.js]] to render the application's page
+ - [[https://redux.js.org][redux]] to hold the application's state
+ - [[https://redux-saga.js.org][redux-saga]] and [[https://github.com/axios/axios][axios]] for REST API communication and asynchronous update of the application's state
+
 ** Status
 
 [[https://travis-ci.org/steinarb/frontend-karaf-demo][file:https://travis-ci.org/steinarb/frontend-karaf-demo.svg?branch=master]] [[https://coveralls.io/r/steinarb/frontend-karaf-demo][file:https://coveralls.io/repos/steinarb/frontend-karaf-demo/badge.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=alert_status#.svg]] [[https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos/frontend-karaf-demo][file:https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos/frontend-karaf-demo/badge.svg]]
@@ -26,12 +35,18 @@ Installation steps:
       mvn clean install
     #+END_EXAMPLE
  2. Install apache karaf (e.g. according to the karaf quick start guide), and start it
- 4. From the karaf console (either from the karaf started above, or from an SSH session into a running karaf), install the application with the following commands:
+ 3. From the karaf console (either from the karaf started above, or from an SSH session into a running karaf), install the application with the following commands:
     #+BEGIN_EXAMPLE
       feature:repo-add mvn:no.priv.bang.demos/frontend-karaf-demo/LATEST/xml/features
       feature:install frontend-karaf-demo
     #+END_EXAMPLE
- 5. Open a web browser on http://localhost:8181/frontend-karaf-demo/
+ 4. Open a web browser on http://localhost:8181/frontend-karaf-demo/ and use the "+" and "-" buttons to increment and decrement the counter
+    - If using Chrome or Chromium it's a good idea to press Ctrl-Shift-i to open the developer tools, where it is possible to watch error messages in the console, and set breakpoints and debug the JavaScript code
+    - It's also a good idea to visit the [[https://chrome.google.com/webstore/category/extensions][Chrome Web Store]] and install:
+      1. [[https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi][React Developer Tools]] from Facebook
+         - The "React" tab in chrome devtools gives a view of the react application tree, rather than the DOM, where it is possible to examine the react components' props and state, it's also possible to click on a part of the application and navigate to the corret place in the react application tree
+      2. [[https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd][Redux DevTools]] from remotedevio
+         - The "Redux" tab in chrome devtools lets you examine the redux store of the application
 
 ** LICENSE
 
