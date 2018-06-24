@@ -3,6 +3,8 @@ package no.priv.bang.demos.frontendkarafdemo;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLConnection;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletOutputStream;
@@ -23,6 +25,9 @@ import static no.priv.bang.demos.frontendkarafdemo.ApplicationConstants.*;
 public class ReactServlet extends HttpServlet {
     private static final long serialVersionUID = 250817058831319271L;
     private final LogServiceAdapter logservice = new LogServiceAdapter();
+
+    // The paths used by the react router all needs to return the HTML wrapping the bundle.js
+    private final List<String> routes = Arrays.asList("/", "/counter", "/about");
 
     @Reference
     public void setLogservice(LogService logservice) {
@@ -84,7 +89,7 @@ public class ReactServlet extends HttpServlet {
     }
 
     private String findResourceFromPathInfo(String pathInfo) {
-        if ("/".equals(pathInfo)) {
+        if (routes.contains(pathInfo)) {
             return "index.xhtml";
         }
 

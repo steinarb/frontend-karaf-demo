@@ -13,6 +13,7 @@ The react application uses the following features:
  - [[https://reactjs.org][react.js]] to render the application's page
  - [[https://redux.js.org][redux]] to hold the application's state
  - [[https://redux-saga.js.org][redux-saga]] and [[https://github.com/axios/axios][axios]] for REST API communication and asynchronous update of the application's state
+ - [[https://reacttraining.com/react-router/][react-router]] to route between different pages (however this requires hardcoding the ReactServlet's path into the react app, and requires the ReactServlet to return the top level index.html from all routes)
 
 ** Status
 

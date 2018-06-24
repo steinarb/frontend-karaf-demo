@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 let Counter = ({value, onIncrement}) => (
-    <p>
-        {value}
-        <button onClick={() => onIncrement(value, 1)}>+</button>
-        <button onClick={() => onIncrement(value, -1)}>-</button>
-    </p>
+    <div>
+        <h1>Counting high and low</h1>
+        <p>
+            {value}
+            <button onClick={() => onIncrement(value, 1)}>+</button>
+            <button onClick={() => onIncrement(value, -1)}>-</button>
+        </p>
+    </div>
 );
 
 const mapStateToProps = state => {
