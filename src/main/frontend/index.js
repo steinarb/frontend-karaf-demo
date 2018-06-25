@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Switch, Route, BrowserRouter as Router, Link } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router, NavLink } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { connect, Provider } from 'react-redux';
@@ -20,9 +20,9 @@ render(
             <div className="App">
                 <div className="container">
                     <ul>
-                        <li><Link to="/frontend-karaf-demo/">Home</Link></li>
-                        <li><Link to="/frontend-karaf-demo/counter">Counter</Link></li>
-                        <li><Link to="/frontend-karaf-demo/about">About</Link></li>
+                        <li><NavLink to="/frontend-karaf-demo/">Home</NavLink></li>
+                        <li><NavLink to="/frontend-karaf-demo/counter">Counter</NavLink></li>
+                        <li><NavLink to="/frontend-karaf-demo/about">About</NavLink></li>
                     </ul>
                     <hr/>
                 </div>
