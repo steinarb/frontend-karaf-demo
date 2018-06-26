@@ -1,6 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Switch, Route, BrowserRouter as Router, NavLink } from 'react-router-dom';
+import Bootstrap from 'bootstrap3/dist/css/bootstrap.css';
+import { Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { connect, Provider } from 'react-redux';
@@ -19,11 +22,9 @@ render(
         <Router>
             <div className="App">
                 <div className="container">
-                    <ul>
-                        <li><NavLink to="/frontend-karaf-demo/">Home</NavLink></li>
-                        <li><NavLink to="/frontend-karaf-demo/counter">Counter</NavLink></li>
-                        <li><NavLink to="/frontend-karaf-demo/about">About</NavLink></li>
-                    </ul>
+                    <LinkContainer to="/frontend-karaf-demo/"><Button>Home</Button></LinkContainer>
+                    <LinkContainer to="/frontend-karaf-demo/counter"><Button>Counter</Button></LinkContainer>
+                    <LinkContainer to="/frontend-karaf-demo/about"><Button>About</Button></LinkContainer>
                     <hr/>
                 </div>
                 <Switch>
