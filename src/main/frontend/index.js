@@ -4,7 +4,7 @@ import { Switch, Route, BrowserRouter as Router, NavLink } from 'react-router-do
 import Bootstrap from 'bootstrap3/dist/css/bootstrap.css';
 import { Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { connect, Provider } from 'react-redux';
 import { counterReducer } from './reducers';
@@ -14,7 +14,7 @@ import Counter from './components/Counter';
 import { rootSaga } from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(counterReducer, applyMiddleware(sagaMiddleware));
+const store = createStore(counterReducer, compose(applyMiddleware(sagaMiddleware), window.devToolsExtension ? window.devToolsExtension() : f => f));
 sagaMiddleware.run(rootSaga);
 
 render(
