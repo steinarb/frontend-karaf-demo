@@ -20,8 +20,9 @@ public class ReactServlet extends FrontendServlet {
         setRoutes("/", "/counter", "/about");
     }
 
+    @Override
     @Reference
-    public void setLogservice(LogService logservice) {
+    public void setLogService(LogService logservice) {
         super.setLogService(logservice);
     }
 

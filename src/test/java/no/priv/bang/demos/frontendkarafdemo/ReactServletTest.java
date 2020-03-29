@@ -28,7 +28,7 @@ public class ReactServletTest {
         MockHttpServletResponse response = mock(MockHttpServletResponse.class, CALLS_REAL_METHODS);
 
         ReactServlet servlet = new ReactServlet();
-        servlet.setLogservice(logservice);
+        servlet.setLogService(logservice);
 
         servlet.service(request, response);
 
@@ -48,7 +48,7 @@ public class ReactServletTest {
         MockHttpServletResponse response = mock(MockHttpServletResponse.class, CALLS_REAL_METHODS);
 
         ReactServlet servlet = new ReactServlet();
-        servlet.setLogservice(logservice);
+        servlet.setLogService(logservice);
 
         servlet.service(request, response);
 
@@ -69,7 +69,7 @@ public class ReactServletTest {
         when(response.getOutputStream()).thenReturn(streamThrowingIOException);
 
         ReactServlet servlet = new ReactServlet();
-        servlet.setLogservice(logservice);
+        servlet.setLogService(logservice);
 
         servlet.service(request, response);
 
@@ -89,7 +89,7 @@ public class ReactServletTest {
         when(response.getOutputStream()).thenThrow(IOException.class);
 
         ReactServlet servlet = new ReactServlet();
-        servlet.setLogservice(logservice);
+        servlet.setLogService(logservice);
 
         servlet.service(request, response);
 
@@ -107,7 +107,7 @@ public class ReactServletTest {
         MockHttpServletResponse response = mock(MockHttpServletResponse.class, CALLS_REAL_METHODS);
 
         ReactServlet servlet = new ReactServlet();
-        servlet.setLogservice(logservice);
+        servlet.setLogService(logservice);
 
         servlet.service(request, response);
 
