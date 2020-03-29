@@ -5,5 +5,5 @@ addons:
         organization: steinarb-github
         token: $SONAR_TOKEN
 script:
-    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent verify sonar:sonar
     - mvn cobertura:cobertura coveralls:report
