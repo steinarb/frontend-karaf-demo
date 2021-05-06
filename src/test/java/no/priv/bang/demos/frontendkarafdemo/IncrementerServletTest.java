@@ -1,7 +1,7 @@
 package no.priv.bang.demos.frontendkarafdemo;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import java.io.ByteArrayInputStream;
@@ -13,14 +13,14 @@ import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import no.priv.bang.demos.frontendkarafdemo.mocks.MockHttpServletResponse;
 
-public class IncrementerServletTest {
+class IncrementerServletTest {
 
     @Test
-    public void doPostIncrement() throws Exception {
+    void doPostIncrement() throws Exception {
         Counter value = new Counter(10, 1);
         String valueAsJson = IncrementerServlet.mapper.writeValueAsString(value);
         ServletInputStream postBody = wrap(new ByteArrayInputStream(valueAsJson.getBytes()));
@@ -42,7 +42,7 @@ public class IncrementerServletTest {
     }
 
     @Test
-    public void doPostDecrement() throws Exception {
+    void doPostDecrement() throws Exception {
         Counter value = new Counter(10, -1);
         String valueAsJson = IncrementerServlet.mapper.writeValueAsString(value);
         ServletInputStream postBody = wrap(new ByteArrayInputStream(valueAsJson.getBytes()));
@@ -64,7 +64,7 @@ public class IncrementerServletTest {
     }
 
     @Test
-    public void doPostNotJson() throws Exception {
+    void doPostNotJson() throws Exception {
         String valueNotJson = "<this>is <not>json</not></this>";
         ServletInputStream postBody = wrap(new ByteArrayInputStream(valueNotJson.getBytes()));
         HttpServletRequest request = mock(HttpServletRequest.class);

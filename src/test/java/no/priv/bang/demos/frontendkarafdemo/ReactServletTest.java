@@ -1,7 +1,7 @@
 package no.priv.bang.demos.frontendkarafdemo;
 
-import static org.junit.Assert.*;
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import java.io.IOException;
@@ -9,16 +9,16 @@ import java.io.IOException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import no.priv.bang.demos.frontendkarafdemo.mocks.MockHttpServletResponse;
 import no.priv.bang.osgi.service.mocks.logservice.MockLogService;
 
 
-public class ReactServletTest {
+class ReactServletTest {
 
     @Test
-    public void testDoGetSuccess() throws Exception {
+    void testDoGetSuccess() throws Exception {
         MockLogService logservice = new MockLogService();
         HttpServletRequest request = mock(HttpServletRequest.class);
         when(request.getMethod()).thenReturn("GET");
@@ -38,7 +38,7 @@ public class ReactServletTest {
     }
 
     @Test
-    public void testDoGetAddTrailingSlash() throws Exception {
+    void testDoGetAddTrailingSlash() throws Exception {
         MockLogService logservice = new MockLogService();
         HttpServletRequest request = mock(HttpServletRequest.class);
         when(request.getMethod()).thenReturn("GET");
@@ -56,7 +56,7 @@ public class ReactServletTest {
     }
 
     @Test
-    public void testDoGetResponseThrowsIOException() throws Exception {
+    void testDoGetResponseThrowsIOException() throws Exception {
         MockLogService logservice = new MockLogService();
         HttpServletRequest request = mock(HttpServletRequest.class);
         when(request.getMethod()).thenReturn("GET");
@@ -76,9 +76,8 @@ public class ReactServletTest {
         assertEquals(500, response.getStatus());
     }
 
-    @SuppressWarnings("unchecked")
     @Test
-    public void testDoGetResponseStreamMethodThrowsIOException() throws Exception {
+    void testDoGetResponseStreamMethodThrowsIOException() throws Exception {
         MockLogService logservice = new MockLogService();
         HttpServletRequest request = mock(HttpServletRequest.class);
         when(request.getMethod()).thenReturn("GET");
@@ -97,7 +96,7 @@ public class ReactServletTest {
     }
 
     @Test
-    public void testDoGetResourceNotFound() throws Exception {
+    void testDoGetResourceNotFound() throws Exception {
         MockLogService logservice = new MockLogService();
         HttpServletRequest request = mock(HttpServletRequest.class);
         when(request.getMethod()).thenReturn("GET");
