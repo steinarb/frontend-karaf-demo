@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'react-bootstrap';
 
 let Counter = ({value, onIncrement}) => (
     <div>
         <h1>Counting high and low</h1>
         <p>
             {value}
-            <Button onClick={() => onIncrement(value, 1)}>+</Button>
-            <Button onClick={() => onIncrement(value, -1)}>-</Button>
+            <button onClick={() => onIncrement(value, 1)}>+</button>
+            <button onClick={() => onIncrement(value, -1)}>-</button>
         </p>
     </div>
 );
