@@ -34,7 +34,7 @@ class ReactServletTest {
 
         assertEquals("text/html", response.getContentType());
         assertEquals(200, response.getStatus());
-        assertThat(response.getOutput().size()).isGreaterThan(0);
+        assertThat(response.getOutput().size()).isPositive();
     }
 
     @Test
