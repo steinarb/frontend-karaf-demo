@@ -1,29 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {
+    INCREMENT_REQUEST,
+    DECREMENT_REQUEST,
+} from '../actiontypes';
 
-let Counter = ({value, onIncrement}) => (
-    <div>
-        <h1>Counting high and low</h1>
-        <p>
-            {value}
-            <button onClick={() => onIncrement(value, 1)}>+</button>
-            <button onClick={() => onIncrement(value, -1)}>-</button>
-        </p>
-    </div>
-);
 
-const mapStateToProps = state => {
+function Counter(props) {
+    const {counter, onIncrement, onDecrement} = props;
+
+    return (
+        <div>
+            <h1>Counting high and low</h1>
+            <p>
+                {counter}
+                <button onClick={onIncrement}>+</button>
+                <button onClick={onDecrement}>-</button>
+            </p>
+        </div>
+    );
+}
+
+function mapStateToProps(state) {
     return {
-        value: state.value
+        counter: state.counter,
     };
-};
+}
 
-const mapDispatchToProps = dispatch => {
+function mapDispatchToProps(dispatch) {
     return {
-        onIncrement: (value, delta) => dispatch({ type: 'INCREMENT_REQUEST', value, delta })
+        onIncrement: () => dispatch(INCREMENT_REQUEST()),
+        onDecrement: () => dispatch(DECREMENT_REQUEST()),
     };
-};
+}
 
-Counter = connect(mapStateToProps, mapDispatchToProps)(Counter);
-
-export default Counter;
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);

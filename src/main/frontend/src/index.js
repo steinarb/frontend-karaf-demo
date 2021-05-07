@@ -2,16 +2,27 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Switch, Route, BrowserRouter as Router, NavLink } from 'react-router-dom';
 import { applyMiddleware, createStore, compose } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { connect, Provider } from 'react-redux';
-import { counterReducer } from './reducers';
+import { createBrowserHistory } from 'history';
+import { routerMiddleware } from 'connected-react-router';
+import createRootReducer from './reducers';
+import rootSaga from './sagas/';
 import Home from './components/Home';
 import About from './components/About';
 import Counter from './components/Counter';
-import { rootSaga } from './sagas';
+
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(counterReducer, compose(applyMiddleware(sagaMiddleware), window.devToolsExtension ? window.devToolsExtension() : f => f));
+const history = createBrowserHistory();
+const store = configureStore({
+    reducer: createRootReducer(history),
+    middleware: [
+        sagaMiddleware,
+        routerMiddleware(history),
+    ],
+});
 sagaMiddleware.run(rootSaga);
 
 render(

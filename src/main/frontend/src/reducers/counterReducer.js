@@ -1,14 +1,12 @@
-export const counterReducer = (state = { value: 0 }, action) => {
-    if (action.type === 'INCREMENT_REQUEST') {
-        return {
-            ...state
-        };
-    }
-    if (action.type === 'INCREMENT_RECEIVE') {
-        return {
-            ...state,
-            value: action.value
-        };
-    }
-    return { ...state };
-}
+import { createReducer } from '@reduxjs/toolkit';
+import {
+    INCREMENT_RECEIVE,
+    DECREMENT_RECEIVE,
+} from '../actiontypes';
+
+const counterReducer = createReducer(0, {
+    [INCREMENT_RECEIVE]: (state, action) => action.payload,
+    [DECREMENT_RECEIVE]: (state, action) => action.payload,
+});
+
+export default counterReducer;
