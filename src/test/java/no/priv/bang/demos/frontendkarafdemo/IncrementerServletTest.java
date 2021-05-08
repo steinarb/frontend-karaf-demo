@@ -3,9 +3,10 @@ package no.priv.bang.demos.frontendkarafdemo;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-
 import com.mockrunner.mock.web.MockHttpServletRequest;
 import com.mockrunner.mock.web.MockHttpServletResponse;
+
+import no.priv.bang.osgi.service.mocks.logservice.MockLogService;
 
 class IncrementerServletTest {
 
@@ -70,6 +71,26 @@ class IncrementerServletTest {
         Counter incrementedValue = IncrementerServlet.mapper.readValue(response.getOutputStreamContent(), Counter.class);
         assertEquals(0,incrementedValue.getValue());
         assertEquals(0,incrementedValue.getDelta());
+    }
+
+    @Test
+    void doPostIncrementWithWrongNameForValueProperty() throws Exception {
+        MockLogService logservice = new MockLogService();
+        String valueAsJson = "{ \"currentValue\": 0, \"delta\": -1 }";
+        MockHttpServletRequest request = new MockHttpServletRequest()
+            .setMethod("POST")
+            .setRequestURI("http://localhost:8181/frontend-karaf-demo/api/increment")
+            .setPathInfo("/")
+            .setBodyContent(valueAsJson);
+        MockHttpServletResponse response = new MockHttpServletResponse();
+
+        IncrementerServlet servlet = new IncrementerServlet();
+        servlet.setLogService(logservice);
+        servlet.service(request, response);
+
+        assertEquals("application/json", response.getContentType());
+        assertEquals(500, response.getStatus());
+        assertThat(logservice.getLogmessages()).isNotEmpty();
     }
 
 }

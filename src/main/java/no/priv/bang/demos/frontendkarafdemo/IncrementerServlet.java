@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.log.LogService;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import no.priv.bang.osgi.service.adapters.logservice.LogServiceAdapter;
 
 import static no.priv.bang.demos.frontendkarafdemo.ApplicationConstants.*;
 
@@ -20,6 +24,12 @@ import static no.priv.bang.demos.frontendkarafdemo.ApplicationConstants.*;
 @Component(service={Servlet.class}, property={"alias=" + APPLICATION_PATH + "/api/increment"} )
 public class IncrementerServlet extends HttpServlet {
     static final ObjectMapper mapper = new ObjectMapper();
+    final LogServiceAdapter logservice = new LogServiceAdapter();
+
+    @Reference
+    public void setLogService(LogService logservice) {
+        this.logservice.setLogService(logservice);
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,6 +43,7 @@ public class IncrementerServlet extends HttpServlet {
                 }
             }
         } catch (Exception e) {
+            logservice.log(LogService.LOG_ERROR, "Failed to increment the counter value", e);
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             try(PrintWriter responseBody = response.getWriter()) {
                 responseBody.println("{ \"value\": 0, \"delta\": 0 }");
