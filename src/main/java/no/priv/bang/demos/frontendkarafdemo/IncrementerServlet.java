@@ -44,7 +44,10 @@ public class IncrementerServlet extends HttpServlet {
 
     Counter increment(Counter counter) {
         int delta = counter.getDelta();
-        return new Counter(counter.getValue() + delta, delta);
+        return Counter.with()
+            .value(counter.getValue() + delta)
+            .delta(delta)
+            .build();
     }
 
 }

@@ -11,7 +11,7 @@ class IncrementerServletTest {
 
     @Test
     void doPostIncrement() throws Exception {
-        Counter value = new Counter(10, 1);
+        Counter value = Counter.with().value(10).delta(1).build();
         String valueAsJson = IncrementerServlet.mapper.writeValueAsString(value);
         MockHttpServletRequest request = new MockHttpServletRequest()
             .setMethod("POST")
@@ -32,7 +32,7 @@ class IncrementerServletTest {
 
     @Test
     void doPostDecrement() throws Exception {
-        Counter value = new Counter(10, -1);
+        Counter value = Counter.with().value(10).delta(-1).build();
         String valueAsJson = IncrementerServlet.mapper.writeValueAsString(value);
         MockHttpServletRequest request = new MockHttpServletRequest()
             .setMethod("POST")
