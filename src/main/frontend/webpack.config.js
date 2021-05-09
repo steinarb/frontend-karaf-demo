@@ -18,11 +18,10 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader',
-                options: {
+                use: ['babel-loader?' + JSON.stringify({
                     cacheDirectory: true,
-                    presets: ['@babel/react']
-                }
+                    presets: ['@babel/preset-react']
+                }), 'eslint-loader'],
             },
             {
                 test: /\.css$/,
