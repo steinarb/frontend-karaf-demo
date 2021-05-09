@@ -16,6 +16,18 @@ The react application uses the following features:
  - [[https://redux-saga.js.org][redux-saga]] and [[https://github.com/axios/axios][axios]] for REST API communication and asynchronous update of the application's state
  - [[https://reacttraining.com/react-router/][react-router]] to route between different pages (however this requires hardcoding the ReactServlet's path into the react app, and requires the ReactServlet to return the top level index.html from all routes)
 
+The react application follows the structure I've found clear and easy to work with:
+ - Avoid embedding binaries like images or fonts in the bundle.js, it's better to load them from a web resource
+ - Avoid embedding large CSS files like e.g. bootstrap in bundle.js, again: it's better to load them from a web resource
+ - The build script and package.json in the top directory with the application in a subdirectory named =src/=
+ - Inside =src/=
+   - On the top, index.js that enters the application and sets up and starts redux and saga
+   - actiontypes.js containing all of the redux actions in the applcation, created using redux toolkit's "[[https://redux-toolkit.js.org/api/createAction][createAction()]]"
+   - Subdirectory =components/= containing all of the visible UI components of the frontend app
+     - Note in particular Counter.js which demonstrates both displaying data from redux and dispatching actions with redux
+   - Subdirectory =reducers/= containing all of the reducers (created with redux toolkit "[[https://redux-toolkit.js.org/api/createReducer#usage-with-the-map-object-notation][createReducer()]] using the map notation, and using "computed syntax" (i.e. square brackets on property identifiers), to be able to use the createAction() actions directly
+   - Subdirectory =sagas/= containing the sagas that handle asynchronous REST API communication (a REST operation is triggered by dispatching a redux action that is picked up by the saga, and both successful and failed REST responses results in redux actions, that in turn are picked up by reducers and stored in the reduc state
+
 ** Status
 
 [[https://travis-ci.org/steinarb/frontend-karaf-demo][file:https://travis-ci.org/steinarb/frontend-karaf-demo.svg?branch=master]] [[https://coveralls.io/r/steinarb/frontend-karaf-demo][file:https://coveralls.io/repos/steinarb/frontend-karaf-demo/badge.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=alert_status#.svg]] [[https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos/frontend-karaf-demo][file:https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos/frontend-karaf-demo/badge.svg]]
