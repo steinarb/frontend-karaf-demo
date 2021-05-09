@@ -6,14 +6,15 @@ import {
     INCREMENT_FAILURE,
 } from '../actiontypes';
 
-function doIncrement(value) {
-    return axios.post('/frontend-karaf-demo/api/increment', { value, delta: 1 });
+function doIncrement(value, delta) {
+    return axios.post('/frontend-karaf-demo/api/increment', { value, delta });
 }
 
 function* sendReceiveIncrement() {
     try {
+        const delta = yield select(state => state.delta);
         const currentValue = yield select(state => state.counter);
-        const response = yield call(doIncrement, currentValue);
+        const response = yield call(doIncrement, currentValue, delta);
         const incrementedCounter = response.data;
         yield put(INCREMENT_RECEIVE(incrementedCounter.value));
     } catch (error) {

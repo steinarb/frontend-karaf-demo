@@ -6,14 +6,15 @@ import {
     DECREMENT_FAILURE,
 } from '../actiontypes';
 
-function doDecrement(value) {
-    return axios.post('/frontend-karaf-demo/api/increment', { value, delta: -1 });
+function doDecrement(value, delta) {
+    return axios.post('/frontend-karaf-demo/api/increment', { value, delta: -delta });
 }
 
 function* sendReceiveDecrement() {
     try {
+        const delta = yield select(state => state.delta);
         const currentValue = yield select(state => state.counter);
-        const response = yield call(doDecrement, currentValue);
+        const response = yield call(doDecrement, currentValue, delta);
         const decrementedCounter = response.data;
         yield put(DECREMENT_RECEIVE(decrementedCounter.value));
     } catch (error) {
