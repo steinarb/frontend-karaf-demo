@@ -1,4 +1,4 @@
-import { takeLatest, call, put, fork, select } from "redux-saga/effects";
+import { takeLatest, call, put, select } from "redux-saga/effects";
 import axios from "axios";
 import {
     DECREMENT_REQUEST,
@@ -10,7 +10,7 @@ function doDecrement(value) {
     return axios.post('/frontend-karaf-demo/api/increment', { value, delta: -1 });
 }
 
-function* sendReceiveDecrement(action) {
+function* sendReceiveDecrement() {
     try {
         const currentValue = yield select(state => state.counter);
         const response = yield call(doDecrement, currentValue);

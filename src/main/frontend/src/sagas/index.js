@@ -7,4 +7,4 @@ export default function* rootSaga() {
         fork(incrementSaga),
         fork(decrementSaga),
     ]);
-};
+}
