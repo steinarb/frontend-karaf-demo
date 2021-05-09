@@ -46,7 +46,7 @@ public class IncrementerServlet extends HttpServlet {
             logservice.log(LogService.LOG_ERROR, "Failed to increment the counter value", e);
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             try(PrintWriter responseBody = response.getWriter()) {
-                responseBody.println("{ \"value\": 0, \"delta\": 0 }");
+                mapper.writeValue(responseBody, Error.with().status(HttpServletResponse.SC_INTERNAL_SERVER_ERROR).message(e.getMessage()).build());
             } catch (Exception e2) {
                 // Swallow exception quietly and just return the error code
             }

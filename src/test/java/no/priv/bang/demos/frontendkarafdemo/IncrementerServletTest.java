@@ -68,9 +68,9 @@ class IncrementerServletTest {
         assertEquals("application/json", response.getContentType());
         assertEquals(500, response.getStatus());
 
-        Counter incrementedValue = IncrementerServlet.mapper.readValue(response.getOutputStreamContent(), Counter.class);
-        assertEquals(0,incrementedValue.getValue());
-        assertEquals(0,incrementedValue.getDelta());
+        Error incrementedValue = IncrementerServlet.mapper.readValue(response.getOutputStreamContent(), Error.class);
+        assertEquals(500,incrementedValue.getStatus());
+        assertThat(incrementedValue.getMessage()).startsWith("Unexpected character");
     }
 
     @Test
