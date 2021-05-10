@@ -48,7 +48,7 @@ Installation steps:
       cd ~/git/frontend-karaf-demo/
       mvn clean install
     #+END_EXAMPLE
- 2. Install apache karaf (e.g. according to the karaf quick start guide), and start it
+ 2. Install apache karaf (e.g. [[https://karaf.apache.org/manual/latest/quick-start.html][according to the karaf quick start guide]] or by [[https://steinar.bang.priv.no/2018/01/23/packaging-karaf-with-native-debian-packaging-tools/][installing the .deb package on debian/ubuntu/raspbian]]), and start karaf
  3. From the karaf console (either from the karaf started above, or from an SSH session into a running karaf), install the application with the following commands:
     #+BEGIN_EXAMPLE
       feature:repo-add mvn:no.priv.bang.demos/frontend-karaf-demo/LATEST/xml/features
