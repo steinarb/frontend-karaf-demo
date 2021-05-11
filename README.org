@@ -2,7 +2,7 @@
 
 This is a maven project that is a testbed for delivering [[https://reactjs.org][react.js]] frontends from apache karaf.
 
-The maven config:
+The [[https://github.com/steinarb/frontend-karaf-demo/blob/master/pom.xml#L138][maven plugin config]]:
  - uses [[https://github.com/eirslett/frontend-maven-plugin][frontend-maven-plugin]] to [[https://webpack.js.org][webpack]] a  [[https://reactjs.org][react.js]] application into a self-contained bundle.js file that can be served as a static resource. Note that this doesn't need a node.js installed when building, nor will it use any node.js/npm installed locally on the build machine.
    The [[https://github.com/eirslett/frontend-maven-plugin][frontend-maven-plugin]] will download and upack its own node.js, and use this node.js to download the npm dependencies and create the bundle.js
  - uses [[http://felix.apache.org/components/bundle-plugin/][maven-bundle-plugin]] to create two DS OSGi components that expose the Servlet service that is plugged into an OSGi web whiteboard
