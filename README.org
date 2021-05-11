@@ -3,7 +3,8 @@
 This is a maven project that is a testbed for delivering [[https://reactjs.org][react.js]] frontends from apache karaf.
 
 The maven config:
- - uses [[https://github.com/eirslett/frontend-maven-plugin][frontend-maven-plugin]] to [[https://webpack.js.org][webpack]] a  [[https://reactjs.org][react.js]] application into a self-contained bundle.js file that can be served as a static resource
+ - uses [[https://github.com/eirslett/frontend-maven-plugin][frontend-maven-plugin]] to [[https://webpack.js.org][webpack]] a  [[https://reactjs.org][react.js]] application into a self-contained bundle.js file that can be served as a static resource. Note that this doesn't need a node.js installed when building, nor will it use any node.js/npm installed locally on the build machine.
+   The [[https://github.com/eirslett/frontend-maven-plugin][frontend-maven-plugin]] will download and upack its own node.js, and use this node.js to download the npm dependencies and create the bundle.js
  - uses [[http://felix.apache.org/components/bundle-plugin/][maven-bundle-plugin]] to create two DS OSGi components that expose the Servlet service that is plugged into an OSGi web whiteboard
    1. The DS component ReactServlet serves the static resources index.html and bundle.js on the path "/frontend-karaf-demo"
    2. The DS component IncrementerServlet receives POST requests on  the path "/frontend-karaf-demo/api/increment", parses the POSTed JSON into a bean, increments the value property of the bean, and returns the bean as a JSON object (ie. the servlet is stateless and just increments the value of the POSTed object)
