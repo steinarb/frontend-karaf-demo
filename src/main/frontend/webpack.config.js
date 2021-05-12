@@ -23,14 +23,6 @@ module.exports = {
                     presets: ['@babel/preset-react']
                 }), 'eslint-loader'],
             },
-            {
-                test: /\.css$/,
-                use: 'style-loader!css-loader'
-            },
-            {
-                test: /\.(eot|svg|ttf|woff|woff2|otf)(\??\#?v=[.0-9]+)?$/,
-                use: 'file-loader?name=[name].[ext]',
-            },
         ]
     }
 };
