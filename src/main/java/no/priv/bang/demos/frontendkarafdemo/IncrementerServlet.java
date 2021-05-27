@@ -20,9 +20,9 @@ import no.priv.bang.osgi.service.adapters.logservice.LoggerAdapter;
 
 import static no.priv.bang.demos.frontendkarafdemo.ApplicationConstants.*;
 
-@SuppressWarnings("serial")
 @Component(service={Servlet.class}, property={"alias=" + APPLICATION_PATH + "/api/increment"} )
 public class IncrementerServlet extends HttpServlet {
+    private static final long serialVersionUID = 103245292629129445L;
     static final ObjectMapper mapper = new ObjectMapper();
     final LoggerAdapter logger = new LoggerAdapter(getClass());
 
