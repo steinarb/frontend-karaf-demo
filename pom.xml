@@ -15,7 +15,7 @@
         <karaf.version>4.3.2</karaf.version>
         <osgi.version>7.0.0</osgi.version>
         <osgi.service>1.4.0</osgi.service>
-        <frontend-servlet.version>1.1.2</frontend-servlet.version>
+        <bang-servlet.version>1.5.4</bang-servlet.version>
         <osgi-service-adaptors.version>1.0.1</osgi-service-adaptors.version>
         <jackson.version>2.10.3</jackson.version>
         <jackson.databind.version>${jackson.version}</jackson.databind.version>
@@ -34,6 +34,13 @@
                 <groupId>org.apache.karaf</groupId>
                 <artifactId>karaf-bom</artifactId>
                 <version>${karaf.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>no.priv.bang.servlet</groupId>
+                <artifactId>servlet-bom</artifactId>
+                <version>${bang-servlet.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -117,8 +124,13 @@
         <dependency>
             <groupId>no.priv.bang.servlet</groupId>
             <artifactId>servlet.frontend</artifactId>
-            <version>${frontend-servlet.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>no.priv.bang.servlet</groupId>
+            <artifactId>servlet.frontend</artifactId>
+            <type>xml</type>
+            <classifier>features</classifier>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
