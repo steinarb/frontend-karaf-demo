@@ -9,7 +9,6 @@ import java.io.IOException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
-
 import com.mockrunner.mock.web.MockHttpServletRequest;
 import com.mockrunner.mock.web.MockHttpServletResponse;
 
@@ -112,6 +111,12 @@ class ReactServletTest {
         servlet.service(request, response);
 
         assertEquals(404, response.getErrorCode());
+    }
+
+    @Test
+    void testServletContext() {
+        FrontendDemoServletContextHelper contextHelper = new FrontendDemoServletContextHelper();
+        assertNull(contextHelper.getMimeType(null));
     }
 
 }

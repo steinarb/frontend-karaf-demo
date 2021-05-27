@@ -12,15 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.http.whiteboard.propertytypes.HttpWhiteboardContextSelect;
+import org.osgi.service.http.whiteboard.propertytypes.HttpWhiteboardServletPattern;
 import org.osgi.service.log.LogService;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import no.priv.bang.osgi.service.adapters.logservice.LoggerAdapter;
 
-import static no.priv.bang.demos.frontendkarafdemo.ApplicationConstants.*;
+import static org.osgi.service.http.whiteboard.HttpWhiteboardConstants.*;
 
-@Component(service={Servlet.class}, property={"alias=" + APPLICATION_PATH + "/api/increment"} )
+@Component(service={Servlet.class})
+@HttpWhiteboardContextSelect("(" + HTTP_WHITEBOARD_CONTEXT_NAME + "=frontend-demo)")
+@HttpWhiteboardServletPattern("/api/increment")
 public class IncrementerServlet extends HttpServlet {
     private static final long serialVersionUID = 103245292629129445L;
     static final ObjectMapper mapper = new ObjectMapper();
