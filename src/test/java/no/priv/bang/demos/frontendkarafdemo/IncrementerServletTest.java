@@ -54,6 +54,7 @@ class IncrementerServletTest {
 
     @Test
     void doPostNotJson() throws Exception {
+        MockLogService logservice = new MockLogService();
         String valueNotJson = "<this>is <not>json</not></this>";
         MockHttpServletRequest request = new MockHttpServletRequest()
             .setMethod("POST")
@@ -63,6 +64,7 @@ class IncrementerServletTest {
         MockHttpServletResponse response = new MockHttpServletResponse();
 
         IncrementerServlet servlet = new IncrementerServlet();
+        servlet.setLogService(logservice);
         servlet.service(request, response);
 
         assertEquals("application/json", response.getContentType());

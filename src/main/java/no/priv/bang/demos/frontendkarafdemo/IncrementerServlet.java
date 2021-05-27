@@ -16,7 +16,7 @@ import org.osgi.service.log.LogService;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import no.priv.bang.osgi.service.adapters.logservice.LogServiceAdapter;
+import no.priv.bang.osgi.service.adapters.logservice.LoggerAdapter;
 
 import static no.priv.bang.demos.frontendkarafdemo.ApplicationConstants.*;
 
@@ -24,11 +24,11 @@ import static no.priv.bang.demos.frontendkarafdemo.ApplicationConstants.*;
 @Component(service={Servlet.class}, property={"alias=" + APPLICATION_PATH + "/api/increment"} )
 public class IncrementerServlet extends HttpServlet {
     static final ObjectMapper mapper = new ObjectMapper();
-    final LogServiceAdapter logservice = new LogServiceAdapter();
+    final LoggerAdapter logger = new LoggerAdapter(getClass());
 
     @Reference
     public void setLogService(LogService logservice) {
-        this.logservice.setLogService(logservice);
+        this.logger.setLogService(logservice);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class IncrementerServlet extends HttpServlet {
                 }
             }
         } catch (Exception e) {
-            logservice.log(LogService.LOG_ERROR, "Failed to increment the counter value", e);
+            logger.error("Failed to increment the counter value", e);
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             try(PrintWriter responseBody = response.getWriter()) {
                 mapper.writeValue(responseBody, Error.with().status(HttpServletResponse.SC_INTERNAL_SERVER_ERROR).message(e.getMessage()).build());
