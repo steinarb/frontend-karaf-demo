@@ -16,7 +16,7 @@
         <osgi.version>7.0.0</osgi.version>
         <osgi.service>1.4.0</osgi.service>
         <bang-servlet.version>1.5.4</bang-servlet.version>
-        <osgi-service-adaptors.version>1.0.1</osgi-service-adaptors.version>
+        <osgi-service-adapters.version>1.1.2</osgi-service-adapters.version>
         <jackson.version>2.10.3</jackson.version>
         <jackson.databind.version>${jackson.version}</jackson.databind.version>
     </properties>
@@ -41,6 +41,13 @@
                 <groupId>no.priv.bang.servlet</groupId>
                 <artifactId>servlet-bom</artifactId>
                 <version>${bang-servlet.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>no.priv.bang.osgi.service.adapters</groupId>
+                <artifactId>adapters-bom</artifactId>
+                <version>${osgi-service-adapters.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -96,14 +103,18 @@
         </dependency>
         <dependency>
             <groupId>no.priv.bang.osgi.service.adapters</groupId>
-            <artifactId>logservice</artifactId>
-            <version>${osgi-service-adaptors.version}</version>
+            <artifactId>adapters.logservice</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>no.priv.bang.osgi.service.adapters</groupId>
+            <artifactId>adapters.logservice</artifactId>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>no.priv.bang.osgi.service.adapters</groupId>
             <artifactId>service-mocks</artifactId>
-            <version>${osgi-service-adaptors.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
