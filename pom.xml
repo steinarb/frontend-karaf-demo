@@ -15,7 +15,6 @@
         <karaf.version>4.3.2</karaf.version>
         <osgi.version>7.0.0</osgi.version>
         <osgi.service>1.4.0</osgi.service>
-        <pax.web.version>6.0.3</pax.web.version>
         <frontend-servlet.version>1.1.2</frontend-servlet.version>
         <osgi-service-adaptors.version>1.0.1</osgi-service-adaptors.version>
         <jackson.version>2.10.3</jackson.version>
