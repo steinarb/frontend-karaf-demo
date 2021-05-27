@@ -38,6 +38,13 @@ The react application follows the structure I've found clear and easy to work wi
 
 [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=ncloc#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=bugs#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=vulnerabilities#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=code_smells#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=coverage#.svg]]
 
+*** Branches
+
+| branch        | karaf version | snapshot version | OSGi version |
+|---------------+---------------+------------------+--------------|
+| master        |         4.3.x | 2.0.0-SNAPSHOT   | OSGi 7       |
+| release/1.1.0 |        4.2.11 | 1.1.0-SNAPSHOT   | OSGi 6       |
+
 ** Installation on apache karaf
 
 Installation steps:
