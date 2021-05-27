@@ -9,10 +9,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.bundle.plugin.version>5.1.2</maven.bundle.plugin.version>
+        <karaf.version>4.3.2</karaf.version>
         <karaf-feature-name>${project.artifactId}</karaf-feature-name>
         <Bundle-SymbolicName>no.priv.bang.demos.${project.artifactId}</Bundle-SymbolicName>
-        <maven.bundle.plugin.version>2.5.3</maven.bundle.plugin.version>
-        <karaf.version>4.3.2</karaf.version>
         <osgi.version>7.0.0</osgi.version>
         <osgi.service>1.4.0</osgi.service>
         <bang-servlet.version>1.5.4</bang-servlet.version>
