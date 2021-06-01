@@ -13,9 +13,6 @@
         <karaf.version>4.3.2</karaf.version>
         <karaf-feature-name>${project.artifactId}</karaf-feature-name>
         <Bundle-SymbolicName>no.priv.bang.demos.${project.artifactId}</Bundle-SymbolicName>
-        <osgi.version>7.0.0</osgi.version>
-        <osgi.service>1.4.0</osgi.service>
-        <osgi.web.annotations.version>1.1.0</osgi.web.annotations.version>
         <bang-servlet.version>1.5.4</bang-servlet.version>
         <osgi-service-adapters.version>1.1.2</osgi-service-adapters.version>
         <jackson.version>2.10.3</jackson.version>
@@ -87,25 +84,11 @@
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>osgi.core</artifactId>
-            <version>${osgi.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.service.component.annotations</artifactId>
-            <version>${osgi.service}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.service.log</artifactId>
-            <version>${osgi.service}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.service.http.whiteboard</artifactId>
-            <version>${osgi.web.annotations.version}</version>
+            <artifactId>osgi.cmpn</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
