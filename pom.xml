@@ -13,10 +13,9 @@
         <karaf.version>4.3.2</karaf.version>
         <karaf-feature-name>${project.artifactId}</karaf-feature-name>
         <Bundle-SymbolicName>no.priv.bang.demos.${project.artifactId}</Bundle-SymbolicName>
+        <jersey-feature.version>1.8.4</jersey-feature.version>
         <bang-servlet.version>1.5.6</bang-servlet.version>
         <osgi-service-adapters.version>1.1.4</osgi-service-adapters.version>
-        <jackson.version>2.10.3</jackson.version>
-        <jackson.databind.version>${jackson.version}</jackson.databind.version>
         <junit.jupiter.version>5.7.2</junit.jupiter.version>
         <assertj.version>3.19.0</assertj.version>
         <mockito.version>3.11.0</mockito.version>
@@ -28,6 +27,13 @@
                 <groupId>org.apache.karaf</groupId>
                 <artifactId>karaf-bom</artifactId>
                 <version>${karaf.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>no.priv.bang.karaf</groupId>
+                <artifactId>jersey-feature-bom</artifactId>
+                <version>${jersey-feature.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -111,12 +117,10 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${jackson.databind.version}</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
