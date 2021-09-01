@@ -7,7 +7,7 @@ import {
 } from '../reduxactions';
 
 function doIncrement(value, delta) {
-    return axios.post('/frontend-karaf-demo/api/increment', { value, delta });
+    return axios.post('/api/increment', { value, delta });
 }
 
 function* sendReceiveIncrement() {
