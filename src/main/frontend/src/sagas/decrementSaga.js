@@ -4,7 +4,7 @@ import {
     DECREMENT_REQUEST,
     DECREMENT_RECEIVE,
     DECREMENT_FAILURE,
-} from '../actiontypes';
+} from '../reduxactions';
 
 function doDecrement(value, delta) {
     return axios.post('/frontend-karaf-demo/api/increment', { value, delta: -delta });

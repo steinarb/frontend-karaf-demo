@@ -4,7 +4,7 @@ import {
     INCREMENT_REQUEST,
     INCREMENT_RECEIVE,
     INCREMENT_FAILURE,
-} from '../actiontypes';
+} from '../reduxactions';
 
 function doIncrement(value, delta) {
     return axios.post('/frontend-karaf-demo/api/increment', { value, delta });

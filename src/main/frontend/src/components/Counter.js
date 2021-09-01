@@ -4,7 +4,7 @@ import {
     DELTA_MODIFY,
     INCREMENT_REQUEST,
     DECREMENT_REQUEST,
-} from '../actiontypes';
+} from '../reduxactions';
 
 
 function Counter(props) {

@@ -1,7 +1,7 @@
 import { createReducer } from '@reduxjs/toolkit';
 import {
     DELTA_MODIFY,
-} from '../actiontypes';
+} from '../reduxactions';
 
 const deltaReducer = createReducer(1, {
     [DELTA_MODIFY]: (state, action) => parseInt(action.payload) || 0,

@@ -2,7 +2,7 @@ import { createReducer } from '@reduxjs/toolkit';
 import {
     INCREMENT_RECEIVE,
     DECREMENT_RECEIVE,
-} from '../actiontypes';
+} from '../reduxactions';
 
 const counterReducer = createReducer(0, {
     [INCREMENT_RECEIVE]: (state, action) => action.payload,

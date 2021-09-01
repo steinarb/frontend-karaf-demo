@@ -2,7 +2,7 @@ import { createReducer } from '@reduxjs/toolkit';
 import {
     INCREMENT_FAILURE,
     DECREMENT_FAILURE,
-} from '../actiontypes';
+} from '../reduxactions';
 
 const apiErrorsReducer = createReducer(0, {
     [INCREMENT_FAILURE]: (state, action) => ({ ...state, increment: action.payload }),
