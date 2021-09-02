@@ -3,5 +3,7 @@
 /.classpath
 /.project
 /.settings/
+.idea/
+*.iml
 node_modules/
 target/
