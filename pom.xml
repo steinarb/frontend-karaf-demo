@@ -341,5 +341,23 @@
                 </executions>
             </plugin>
         </plugins>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>3.2.0</version>
+            </extension>
+        </extensions>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>ssh-maven-travis</id>
+            <url>sftp://maven.bang.priv.no/repository</url>
+        </repository>
+        <snapshotRepository>
+            <id>ssh-maven-travis</id>
+            <url>sftp://maven.bang.priv.no/repository</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
