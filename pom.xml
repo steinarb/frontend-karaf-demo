@@ -9,7 +9,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.bundle.plugin.version>5.1.2</maven.bundle.plugin.version>
+        <maven.bundle.plugin.version>5.1.4</maven.bundle.plugin.version>
         <karaf.version>4.3.3</karaf.version>
         <karaf-feature-name>${project.artifactId}</karaf-feature-name>
         <Bundle-SymbolicName>no.priv.bang.demos.${project.artifactId}</Bundle-SymbolicName>
