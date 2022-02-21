@@ -14,7 +14,7 @@
         <karaf-feature-name>${project.artifactId}</karaf-feature-name>
         <Bundle-SymbolicName>no.priv.bang.demos.${project.artifactId}</Bundle-SymbolicName>
         <jersey-feature.version>1.8.5</jersey-feature.version>
-        <bang-servlet.version>1.5.7</bang-servlet.version>
+        <bang-servlet.version>1.5.8</bang-servlet.version>
         <osgi-service-adapters.version>1.1.4</osgi-service-adapters.version>
         <junit.jupiter.version>5.8.2</junit.jupiter.version>
         <assertj.version>3.22.0</assertj.version>
