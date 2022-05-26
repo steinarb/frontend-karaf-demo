@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <features>
     <feature name="${karaf-feature-name}">
-        <feature>pax-http-whiteboard</feature>
+        <feature>scr</feature>
+        <feature>http-whiteboard</feature>
     </feature>
 </features>
