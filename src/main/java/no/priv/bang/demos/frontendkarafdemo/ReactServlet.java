@@ -7,6 +7,7 @@ import javax.servlet.Servlet;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.http.whiteboard.propertytypes.HttpWhiteboardContextSelect;
+import org.osgi.service.http.whiteboard.propertytypes.HttpWhiteboardServletName;
 import org.osgi.service.http.whiteboard.propertytypes.HttpWhiteboardServletPattern;
 import org.osgi.service.log.LogService;
 
@@ -15,6 +16,7 @@ import no.priv.bang.servlet.frontend.FrontendServlet;
 
 @Component(service={Servlet.class})
 @HttpWhiteboardContextSelect("(" + HTTP_WHITEBOARD_CONTEXT_NAME + "=frontend-demo)")
+@HttpWhiteboardServletName("frontend-demo")
 @HttpWhiteboardServletPattern("/*")
 public class ReactServlet extends FrontendServlet {
     private static final long serialVersionUID = 250817058831319271L;
