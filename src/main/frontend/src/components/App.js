@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, BrowserRouter as Router, NavLink } from 'react-router-dom';
+import { Routes, Route, BrowserRouter as Router, NavLink } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
@@ -38,11 +38,11 @@ function App() {
                         <NavLink to="/about"><button>About</button></NavLink>
                         <hr/>
                     </div>
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/counter" component={Counter} />
-                        <Route path="/about" component={About} />
-                    </Switch>
+                    <Routes>
+                        <Route exact path="/" element={<Home/>} />
+                        <Route path="/counter" element={<Counter/>} />
+                        <Route path="/about" element={<About/>} />
+                    </Routes>
                 </div>
             </Router>
         </Provider>
