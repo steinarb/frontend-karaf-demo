@@ -31,12 +31,23 @@ The react application follows the structure I've found clear and easy to work wi
 
 ** Status
 
-[[https://travis-ci.org/steinarb/frontend-karaf-demo][file:https://travis-ci.org/steinarb/frontend-karaf-demo.svg?branch=master]] [[https://coveralls.io/r/steinarb/frontend-karaf-demo][file:https://coveralls.io/repos/steinarb/frontend-karaf-demo/badge.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=alert_status#.svg]] [[https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos/frontend-karaf-demo][file:https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos/frontend-karaf-demo/badge.svg]]
+[[https://github.com/steinarb/frontend-karaf-demo/actions/workflows/frontend-karaf-demo-maven-ci-build.yml][file:https://github.com/steinarb/frontend-karaf-demo/actions/workflows/frontend-karaf-demo-maven-ci-build.yml/badge.svg]]
+[[https://coveralls.io/github/steinarb/frontend-karaf-demo][file:https://coveralls.io/repos/github/steinarb/frontend-karaf-demo/badge.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_frontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_frontend-karaf-demo&metric=alert_status#.svg]]
+[[https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos/frontend-karaf-demo][file:https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos/frontend-karaf-demo/badge.svg]]
 
+[[https://sonarcloud.io/summary/new_code?id=steinarb_frontend-karaf-demo][file:https://sonarcloud.io/images/project_badges/sonarcloud-white.svg]]
 
-*** SonarCloud
-
-[[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=ncloc#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=bugs#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=vulnerabilities#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=code_smells#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos%3Afrontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos%3Afrontend-karaf-demo&metric=coverage#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_frontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_frontend-karaf-demo&metric=sqale_index#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_frontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_frontend-karaf-demo&metric=coverage#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_frontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_frontend-karaf-demo&metric=ncloc#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_frontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_frontend-karaf-demo&metric=code_smells#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_frontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_frontend-karaf-demo&metric=sqale_rating#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_frontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_frontend-karaf-demo&metric=security_rating#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_frontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_frontend-karaf-demo&metric=bugs#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_frontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_frontend-karaf-demo&metric=vulnerabilities#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_frontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_frontend-karaf-demo&metric=duplicated_lines_density#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_frontend-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_frontend-karaf-demo&metric=reliability_rating#.svg]]
 
 *** Branches
 
