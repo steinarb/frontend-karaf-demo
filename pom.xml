@@ -10,7 +10,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.bundle.plugin.version>5.1.8</maven.bundle.plugin.version>
-        <karaf.version>4.4.2</karaf.version>
+        <karaf.version>4.4.3</karaf.version>
         <karaf-feature-name>${project.artifactId}</karaf-feature-name>
         <Bundle-SymbolicName>no.priv.bang.demos.${project.artifactId}</Bundle-SymbolicName>
         <jersey-feature.version>1.9.3</jersey-feature.version>
