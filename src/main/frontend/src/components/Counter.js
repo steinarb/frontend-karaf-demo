@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
     DELTA_MODIFY,
     INCREMENT_REQUEST,
@@ -7,38 +7,23 @@ import {
 } from '../reduxactions';
 
 
-function Counter(props) {
-    const {delta, counter, onDeltaModify, onIncrement, onDecrement} = props;
+export default function Counter() {
+    const delta = useSelector(state => state.delta);
+    const counter = useSelector(state => state.counter);
+    const dispatch = useDispatch();
 
     return (
         <div>
             <h1>Counting high and low</h1>
             <p>
                 Increment step:
-                <input id="delta" type="text" value={delta} onChange={onDeltaModify} />
+                <input id="delta" type="text" value={delta} onChange={e => dispatch(DELTA_MODIFY(e.target.value))} />
             </p>
             <p>
                 {counter}
-                <button onClick={onIncrement}>+</button>
-                <button onClick={onDecrement}>-</button>
+                <button onClick={() => dispatch(INCREMENT_REQUEST())}>+</button>
+                <button onClick={() => dispatch(DECREMENT_REQUEST())}>-</button>
             </p>
         </div>
     );
 }
-
-function mapStateToProps(state) {
-    return {
-        delta: state.delta,
-        counter: state.counter,
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        onDeltaModify: e => dispatch(DELTA_MODIFY(e.target.value)),
-        onIncrement: () => dispatch(INCREMENT_REQUEST()),
-        onDecrement: () => dispatch(DECREMENT_REQUEST()),
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
