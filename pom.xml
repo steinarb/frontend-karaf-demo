@@ -13,6 +13,8 @@
         <karaf.version>4.4.4</karaf.version>
         <karaf-feature-name>${project.artifactId}</karaf-feature-name>
         <Bundle-SymbolicName>no.priv.bang.demos.${project.artifactId}</Bundle-SymbolicName>
+        <frontend.maven.plugin.version>1.12.1</frontend.maven.plugin.version>
+        <nodejs.version>v16.14.0</nodejs.version>
         <jersey-feature.version>1.9.7</jersey-feature.version>
         <bang-servlet.version>1.6.9</bang-servlet.version>
         <osgi-service-adapters.version>1.2.0</osgi-service-adapters.version>
@@ -157,9 +159,9 @@
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
-                <version>1.12.1</version>
+                <version>${frontend.maven.plugin.version}</version>
                 <configuration>
-                    <nodeVersion>v16.14.0</nodeVersion>
+                    <nodeVersion>${nodejs.version}</nodeVersion>
                     <workingDirectory>src/main/frontend</workingDirectory>
                     <installDirectory>target</installDirectory>
                 </configuration>
