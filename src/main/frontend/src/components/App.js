@@ -1,10 +1,11 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter as Router, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import { HistoryRouter as Router } from "redux-first-history/rr6";
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
+import { createReduxHistoryContext } from "redux-first-history";
 import { createBrowserHistory } from 'history';
-import { routerMiddleware } from 'connected-react-router';
 import axios from 'axios';
 import createRootReducer from '../reducers';
 import rootSaga from '../sagas/';
@@ -17,20 +18,22 @@ const baseUrl = Array.from(document.scripts).map(s => s.src).filter(src => src.i
 const basename = new URL(baseUrl).pathname;
 axios.defaults.baseURL = baseUrl;
 const sagaMiddleware = createSagaMiddleware();
-const history = createBrowserHistory({ basename });
+const {
+    createReduxHistory,
+    routerMiddleware,
+    routerReducer
+} = createReduxHistoryContext({ history: createBrowserHistory(), basename });
 const store = configureStore({
-    reducer: createRootReducer(history),
-    middleware: [
-        sagaMiddleware,
-        routerMiddleware(history),
-    ],
+    reducer: createRootReducer(routerReducer),
+    middleware: [sagaMiddleware, routerMiddleware],
 });
 sagaMiddleware.run(rootSaga);
+const history = createReduxHistory(store);
 
 function App() {
     return (
         <Provider store={store}>
-            <Router basename={basename}>
+            <Router history={history} basename={basename}>
                 <div className="App">
                     <div className="container">
                         <NavLink to="/"><button>Home</button></NavLink>
