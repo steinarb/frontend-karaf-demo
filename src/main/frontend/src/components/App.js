@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import { HistoryRouter as Router } from "redux-first-history/rr6";
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, Tuple } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 import { createReduxHistoryContext } from "redux-first-history";
@@ -25,7 +25,7 @@ const {
 } = createReduxHistoryContext({ history: createBrowserHistory(), basename });
 const store = configureStore({
     reducer: createRootReducer(routerReducer),
-    middleware: [sagaMiddleware, routerMiddleware],
+    middleware: () => new Tuple(sagaMiddleware, routerMiddleware),
 });
 sagaMiddleware.run(rootSaga);
 const history = createReduxHistory(store);
