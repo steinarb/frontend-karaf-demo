@@ -4,7 +4,6 @@
     "private": true,
     "dependencies": {
         "@reduxjs/toolkit": "^2.0.1",
-        "ansi-regex": "^5.0.1",
         "axios": "^1.6.1",
         "core-js": "^3.12.1",
         "follow-redirects": "^1.14.8",
