@@ -14,15 +14,15 @@ public class Error {
         return message;
     }
 
-    public static ErrorBuilder with() {
-        return new ErrorBuilder();
+    public static Builder with() {
+        return new Builder();
     }
 
-    public static class ErrorBuilder {
+    public static class Builder {
         int status = -1;
         String message = "";
 
-        private ErrorBuilder() {}
+        private Builder() {}
 
         public Error build() {
             var error = new Error();
@@ -31,12 +31,12 @@ public class Error {
             return error;
         }
 
-        public ErrorBuilder status(int status) {
+        public Builder status(int status) {
             this.status = status;
             return this;
         }
 
-        public ErrorBuilder message(String message) {
+        public Builder message(String message) {
             this.message = message;
             return this;
         }

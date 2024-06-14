@@ -20,15 +20,15 @@ public class Counter {
         return "Counter [value=" + value + ", delta=" + delta + "]";
     }
 
-    public static CounterBuilder with() {
-        return new CounterBuilder();
+    public static Builder with() {
+        return new Builder();
     }
 
-    public static class CounterBuilder {
+    public static class Builder {
         private int value = 0;
         private int delta = 0;
 
-        private CounterBuilder() {}
+        private Builder() {}
 
         public Counter build() {
             var counter = new Counter();
@@ -37,12 +37,12 @@ public class Counter {
             return counter;
         }
 
-        public CounterBuilder value(int value) {
+        public Builder value(int value) {
             this.value = value;
             return this;
         }
 
-        public CounterBuilder delta(int delta) {
+        public Builder delta(int delta) {
             this.delta = delta;
             return this;
         }
