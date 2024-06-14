@@ -31,7 +31,7 @@ public class Counter {
         private CounterBuilder() {}
 
         public Counter build() {
-            Counter counter = new Counter();
+            var counter = new Counter();
             counter.value = this.value;
             counter.delta = this.delta;
             return counter;

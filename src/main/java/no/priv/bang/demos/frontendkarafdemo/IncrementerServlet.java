@@ -1,11 +1,8 @@
 package no.priv.bang.demos.frontendkarafdemo;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,17 +36,17 @@ public class IncrementerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
         try {
-            try(ServletInputStream postBody = request.getInputStream()) {
-                Counter incrementedCounter = increment(mapper.readValue(postBody, Counter.class));
+            try(var postBody = request.getInputStream()) {
+                var incrementedCounter = increment(mapper.readValue(postBody, Counter.class));
                 response.setStatus(HttpServletResponse.SC_OK);
-                try(PrintWriter responseBody = response.getWriter()) {
+                try(var responseBody = response.getWriter()) {
                     mapper.writeValue(responseBody, incrementedCounter);
                 }
             }
         } catch (Exception e) {
             logger.error("Failed to increment the counter value", e);
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            try(PrintWriter responseBody = response.getWriter()) {
+            try(var responseBody = response.getWriter()) {
                 mapper.writeValue(responseBody, Error.with().status(HttpServletResponse.SC_INTERNAL_SERVER_ERROR).message(e.getMessage()).build());
             } catch (Exception e2) {
                 // Swallow exception quietly and just return the error code
@@ -58,7 +55,7 @@ public class IncrementerServlet extends HttpServlet {
     }
 
     Counter increment(Counter counter) {
-        int delta = counter.getDelta();
+        var delta = counter.getDelta();
         return Counter.with()
             .value(counter.getValue() + delta)
             .delta(delta)

@@ -25,7 +25,7 @@ public class Error {
         private ErrorBuilder() {}
 
         public Error build() {
-            Error error = new Error();
+            var error = new Error();
             error.status = this.status;
             error.message = this.message;
             return error;
