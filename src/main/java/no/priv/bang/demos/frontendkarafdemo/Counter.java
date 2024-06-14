@@ -1,24 +1,6 @@
 package no.priv.bang.demos.frontendkarafdemo;
 
-public class Counter {
-
-    private int value;
-    private int delta;
-
-    private Counter() {}
-
-    public int getValue() {
-        return value;
-    }
-
-    public int getDelta() {
-        return delta;
-    }
-
-    @Override
-    public String toString() {
-        return "Counter [value=" + value + ", delta=" + delta + "]";
-    }
+public record Counter(int value, int delta) {
 
     public static Builder with() {
         return new Builder();
@@ -31,10 +13,7 @@ public class Counter {
         private Builder() {}
 
         public Counter build() {
-            var counter = new Counter();
-            counter.value = this.value;
-            counter.delta = this.delta;
-            return counter;
+            return new Counter(value, delta);
         }
 
         public Builder value(int value) {

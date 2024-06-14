@@ -1,18 +1,6 @@
 package no.priv.bang.demos.frontendkarafdemo;
 
-public class Error {
-    int status;
-    String message;
-
-    private Error() {}
-
-    public int getStatus() {
-        return status;
-    }
-
-    public String getMessage() {
-        return message;
-    }
+public record Error(int status, String message) {
 
     public static Builder with() {
         return new Builder();
@@ -25,10 +13,7 @@ public class Error {
         private Builder() {}
 
         public Error build() {
-            var error = new Error();
-            error.status = this.status;
-            error.message = this.message;
-            return error;
+            return new Error(status, message);
         }
 
         public Builder status(int status) {

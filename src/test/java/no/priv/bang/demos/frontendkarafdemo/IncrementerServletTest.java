@@ -28,7 +28,7 @@ class IncrementerServletTest {
         assertEquals(200, response.getStatus());
 
         var incrementedValue = IncrementerServlet.mapper.readValue(response.getOutputStreamContent(), Counter.class);
-        assertThat(incrementedValue.getValue()).isGreaterThan(value.getValue());
+        assertThat(incrementedValue.value()).isGreaterThan(value.value());
     }
 
     @Test
@@ -49,7 +49,7 @@ class IncrementerServletTest {
         assertEquals(200, response.getStatus());
 
         var incrementedValue = IncrementerServlet.mapper.readValue(response.getOutputStreamContent(), Counter.class);
-        assertThat(incrementedValue.getValue()).isLessThan(value.getValue());
+        assertThat(incrementedValue.value()).isLessThan(value.value());
     }
 
     @Test
@@ -71,8 +71,8 @@ class IncrementerServletTest {
         assertEquals(500, response.getStatus());
 
         var incrementedValue = IncrementerServlet.mapper.readValue(response.getOutputStreamContent(), Error.class);
-        assertEquals(500,incrementedValue.getStatus());
-        assertThat(incrementedValue.getMessage()).startsWith("Unexpected character");
+        assertEquals(500,incrementedValue.status());
+        assertThat(incrementedValue.message()).startsWith("Unexpected character");
     }
 
     @Test

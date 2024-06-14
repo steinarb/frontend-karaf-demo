@@ -55,9 +55,9 @@ public class IncrementerServlet extends HttpServlet {
     }
 
     Counter increment(Counter counter) {
-        var delta = counter.getDelta();
+        var delta = counter.delta();
         return Counter.with()
-            .value(counter.getValue() + delta)
+            .value(counter.value() + delta)
             .delta(delta)
             .build();
     }
