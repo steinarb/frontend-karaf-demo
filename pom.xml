@@ -228,7 +228,6 @@
                 <version>2.10.2</version>
                 <configuration>
                     <show>private</show>
-                    <source>8</source>
                 </configuration>
                 <executions>
                     <execution>
