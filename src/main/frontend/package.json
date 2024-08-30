@@ -48,7 +48,7 @@
         "eslint": "^8.56.0",
         "eslint-plugin-react": "^7.33.2",
         "eslint-webpack-plugin": "^4.0.1",
-        "webpack": "^5.89.0",
+        "webpack": "^5.94.0",
         "webpack-cli": "^5.1.4"
     }
 }
