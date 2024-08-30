@@ -179,10 +179,13 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>webpack build</id>
+                        <id>vite build</id>
                         <goals>
-                            <goal>webpack</goal>
+                            <goal>npx</goal>
                         </goals>
+                        <configuration>
+                            <arguments>vite build</arguments>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
