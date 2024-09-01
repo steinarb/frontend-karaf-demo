@@ -13,8 +13,7 @@ import Home from './Home';
 import About from './About';
 import Counter from './Counter';
 
-
-const baseUrl = Array.from(document.scripts).map(s => s.src).filter(src => src.includes('bundle.js'))[0].replace('/bundle.js', '');
+const baseUrl = Array.from(document.scripts).map(s => s.src).filter(src => src.includes('assets/'))[0].replace(/\/assets\/.*/, '');
 const basename = new URL(baseUrl).pathname;
 axios.defaults.baseURL = baseUrl;
 const sagaMiddleware = createSagaMiddleware();
