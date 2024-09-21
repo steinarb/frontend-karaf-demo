@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
     plugins: [eslint()],
     build: {
+        minify: false,
         manifest: true,
         rollupOptions: {
             // overwrite default .html entry
