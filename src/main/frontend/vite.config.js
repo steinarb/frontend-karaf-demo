@@ -5,6 +5,7 @@ export default defineConfig({
     plugins: [eslintPlugin()],
     build: {
         minify: false,
+        sourcemap: true,
         manifest: true,
         rollupOptions: {
             // overwrite default .html entry
