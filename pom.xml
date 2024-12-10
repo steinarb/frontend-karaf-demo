@@ -15,7 +15,7 @@
         <Bundle-SymbolicName>no.priv.bang.demos.${project.artifactId}</Bundle-SymbolicName>
         <frontend.maven.plugin.version>1.15.1</frontend.maven.plugin.version>
         <nodejs.version>v20.18.0</nodejs.version>
-        <jersey-feature.version>1.9.8</jersey-feature.version>
+        <jersey-feature.version>1.9.9</jersey-feature.version>
         <bang-servlet.version>1.7.0</bang-servlet.version>
         <osgi-service-adapters.version>1.2.0</osgi-service-adapters.version>
         <junit.jupiter.version>5.11.0</junit.jupiter.version>
