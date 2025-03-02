@@ -23,7 +23,6 @@ public class ReactServlet extends FrontendServlet {
 
     public ReactServlet() {
         super(ReactServlet.class);
-        setRoutes("/", "/counter", "/about");
     }
 
     @Override
