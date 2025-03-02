@@ -22,7 +22,7 @@ public class ReactServlet extends FrontendServlet {
     private static final long serialVersionUID = 250817058831319271L;
 
     public ReactServlet() {
-        super();
+        super(ReactServlet.class);
         setRoutes("/", "/counter", "/about");
     }
 
