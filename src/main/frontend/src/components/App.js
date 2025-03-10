@@ -14,7 +14,7 @@ import About from './About';
 import Counter from './Counter';
 
 const baseUrl = Array.from(document.scripts).map(s => s.src).filter(src => src.includes('assets/'))[0].replace(/\/assets\/.*/, '');
-const basename = new URL(baseUrl).pathname;
+const basename = new URL(baseUrl).pathname.replace(/\/$/, '');
 axios.defaults.baseURL = baseUrl;
 const sagaMiddleware = createSagaMiddleware();
 const {
