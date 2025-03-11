@@ -1,13 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit';
-import {
-    INCREMENT_FAILURE,
-    DECREMENT_FAILURE,
-} from '../reduxactions';
+import { api } from '../api';
 
-const apiErrorsReducer = createReducer(0, builder => {
+export default createReducer(0, builder => {
     builder
-        .addCase(INCREMENT_FAILURE, (state, action) => ({ ...state, increment: action.payload }))
-        .addCase(DECREMENT_FAILURE, (state, action) => ({ ...state, decrement: action.payload }));
+        .addMatcher(api.endpoints.postIncrement.matchRejected, (state, action) => action.payload)
+        .addMatcher(api.endpoints.postDecrement.matchRejected, (state, action) => action.payload);
 });
-
-export default apiErrorsReducer;

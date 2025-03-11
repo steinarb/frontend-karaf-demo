@@ -1,13 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit';
-import {
-    INCREMENT_RECEIVE,
-    DECREMENT_RECEIVE,
-} from '../reduxactions';
+import { api } from '../api';
 
-const counterReducer = createReducer(0, builder => {
+export default createReducer(0, builder => {
     builder
-        .addCase(INCREMENT_RECEIVE, (state, action) => action.payload)
-        .addCase(DECREMENT_RECEIVE, (state, action) => action.payload);
+        .addMatcher(api.endpoints.postIncrement.matchFulfilled, (state, action) => action.payload.value)
+        .addMatcher(api.endpoints.postDecrement.matchFulfilled, (state, action) => action.payload.value);
 });
-
-export default counterReducer;
