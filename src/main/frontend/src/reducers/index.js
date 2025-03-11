@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import { api } from '../api';
 import apiErrors from './apiErrorsReducer';
-import delta from './deltaReducer';
+import delta from './deltaSlice';
 import counter from './counterReducer';
 
 export default (routerReducer, basename) => combineReducers({

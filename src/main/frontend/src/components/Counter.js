@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { DELTA_MODIFY } from '../reduxactions';
+import { setDelta } from '../reducers/deltaSlice';
 import { usePostIncrementMutation, usePostDecrementMutation } from '../api';
 
 export default function Counter() {
@@ -17,7 +17,7 @@ export default function Counter() {
             <h1>Counting high and low</h1>
             <p>
                 Increment step:
-                <input id="delta" type="text" value={delta} onChange={e => dispatch(DELTA_MODIFY(e.target.value))} />
+                <input id="delta" type="text" value={delta} onChange={e => dispatch(setDelta(e.target.value))} />
             </p>
             <p>
                 {value}
