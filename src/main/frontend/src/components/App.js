@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router';
 import { HistoryRouter as Router } from "redux-first-history/rr6";
 import { configureStore, Tuple } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';

@@ -7,7 +7,7 @@
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "react-redux": "^9.2.0",
-        "react-router-dom": "^6.21.1",
+        "react-router": "^7.5.2",
         "redux": "^5.0.1",
         "redux-first-history": "^5.2.0"
     },
