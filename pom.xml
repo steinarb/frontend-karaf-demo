@@ -14,7 +14,7 @@
         <karaf-feature-name>${project.artifactId}</karaf-feature-name>
         <Bundle-SymbolicName>no.priv.bang.demos.${project.artifactId}</Bundle-SymbolicName>
         <frontend.maven.plugin.version>1.15.1</frontend.maven.plugin.version>
-        <nodejs.version>v20.18.0</nodejs.version>
+        <nodejs.version>v22.17.0</nodejs.version>
         <jersey-feature.version>1.9.11</jersey-feature.version>
         <bang-servlet.version>3.0.1</bang-servlet.version>
         <osgi-service-adapters.version>1.2.0</osgi-service-adapters.version>
