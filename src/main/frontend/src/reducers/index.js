@@ -5,8 +5,7 @@ import apiErrors from './apiErrorsReducer';
 import delta from './deltaSlice';
 import counter from './counterReducer';
 
-export default (routerReducer, basename) => combineReducers({
-    router: routerReducer,
+export default (basename) => combineReducers({
     [api.reducerPath]: api.reducer,
     apiErrors,
     delta,
