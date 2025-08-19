@@ -179,6 +179,15 @@
                         </goals>
                     </execution>
                     <execution>
+                        <id>lint:eslint</id>
+                        <goals>
+                            <goal>npx</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>eslint . --ext js --report-unused-disable-directives --max-warnings 0</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <id>vite build</id>
                         <goals>
                             <goal>npx</goal>
