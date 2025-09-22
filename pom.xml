@@ -19,7 +19,7 @@
         <bang-servlet.version>3.0.1</bang-servlet.version>
         <osgi-service-adapters.version>1.2.0</osgi-service-adapters.version>
         <junit.jupiter.version>5.13.4</junit.jupiter.version>
-        <assertj.version>3.27.5</assertj.version>
+        <assertj.version>3.27.6</assertj.version>
         <mockito.version>5.19.0</mockito.version>
     </properties>
 
