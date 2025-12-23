@@ -16,7 +16,7 @@
         <frontend.maven.plugin.version>2.0.0</frontend.maven.plugin.version>
         <nodejs.version>v22.17.0</nodejs.version>
         <jersey-feature.version>1.9.11</jersey-feature.version>
-        <bang-servlet.version>3.0.2</bang-servlet.version>
+        <bang-servlet.version>3.0.3</bang-servlet.version>
         <osgi-service-adapters.version>1.2.0</osgi-service-adapters.version>
         <junit.jupiter.version>6.0.1</junit.jupiter.version>
         <assertj.version>3.27.6</assertj.version>
