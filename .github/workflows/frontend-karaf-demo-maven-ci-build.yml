@@ -1,4 +1,4 @@
-name: frontend-karaf-demo CI build
+name: frontend-karaf-demo CI and deploy build
 
 on:
   push:
