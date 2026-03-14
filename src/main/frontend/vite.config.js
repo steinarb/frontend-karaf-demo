@@ -13,7 +13,7 @@ export default defineConfig({
         manifest: true,
         rollupOptions: {
             // overwrite default .html entry
-            input: 'src/index.js',
+            input: 'src/index.jsx',
             output: {
                 entryFileNames: `assets/[name].js`,
                 chunkFileNames: `assets/[name].js`,
@@ -22,12 +22,6 @@ export default defineConfig({
         },
         // Relative to the root
         outDir: '../../../target/classes',
-    },
-    // Treat .js files as jsx
-    esbuild: {
-        include: /\.js$/,
-        exclude: [],
-        loader: 'jsx',
     },
 });
 
