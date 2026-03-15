@@ -12,10 +12,9 @@
     },
     "devDependencies": {
         "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-        "@vitejs/plugin-react": "^5.0.0",
         "eslint": "^9.33.0",
         "eslint-plugin-react": "^7.37.5",
         "vite": "^8.0.0",
-        "vite-plugin-simple-html": "^1.0.1"
+        "vite-plugin-simple-html": "^1.1.0"
     }
 }
