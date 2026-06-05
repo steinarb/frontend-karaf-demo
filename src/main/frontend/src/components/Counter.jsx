@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setDelta } from '../reducers/deltaSlice';
 import { usePostIncrementMutation, usePostDecrementMutation } from '../api';

@@ -1,6 +1,5 @@
-import React from 'react';
 import { Routes, Route, NavLink, BrowserRouter as Router } from 'react-router';
-import { configureStore, Tuple } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import createRootReducer from '../reducers';
 import { api } from '../api';
