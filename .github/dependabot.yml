@@ -19,7 +19,7 @@ updates:
 - package-ecosystem: "npm"
   directory: "/src/main/frontend/"
   schedule:
-    interval: "daily"
+    interval: "weekly"
   groups:
     react-updates:
       applies-to: version-updates
