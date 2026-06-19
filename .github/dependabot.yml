@@ -8,14 +8,14 @@ updates:
 - package-ecosystem: maven
   directory: "/"
   schedule:
-    interval: daily
+    interval: weekly
   ignore:
     # ignore Maven APIs/SPIs
     - dependency-name: org.apache.maven:*
 - package-ecosystem: "github-actions"
   directory: "/"
   schedule:
-    interval: "daily"
+    interval: weekly
 - package-ecosystem: "npm"
   directory: "/src/main/frontend/"
   schedule:
