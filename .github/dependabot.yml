@@ -16,8 +16,7 @@ updates:
   schedule:
     interval: "weekly"
   groups:
-    react-updates:
+    npm-all:
       applies-to: version-updates
       patterns:
-        - "react"
-        - "react-dom"
+        - "*"
