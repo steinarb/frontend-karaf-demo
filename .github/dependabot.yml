@@ -14,7 +14,7 @@ updates:
 - package-ecosystem: "npm"
   directory: "/src/main/frontend/"
   schedule:
-    interval: "weekly"
+    interval: monthly
   groups:
     npm-all:
       applies-to: version-updates
