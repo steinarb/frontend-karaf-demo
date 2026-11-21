@@ -8,14 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.http.whiteboard.propertytypes.HttpWhiteboardContextSelect;
 import org.osgi.service.http.whiteboard.propertytypes.HttpWhiteboardServletPattern;
-import org.osgi.service.log.LogService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import no.priv.bang.osgi.service.adapters.logservice.LoggerAdapter;
 
 import static org.osgi.service.http.whiteboard.HttpWhiteboardConstants.*;
 
@@ -24,13 +22,8 @@ import static org.osgi.service.http.whiteboard.HttpWhiteboardConstants.*;
 @HttpWhiteboardServletPattern("/api/increment")
 public class IncrementerServlet extends HttpServlet {
     private static final long serialVersionUID = 103245292629129445L;
+    private static final Logger logger = LoggerFactory.getLogger(IncrementerServlet.class);
     static final ObjectMapper mapper = new ObjectMapper();
-    final LoggerAdapter logger = new LoggerAdapter(getClass());
-
-    @Reference
-    public void setLogService(LogService logservice) {
-        this.logger.setLogService(logservice);
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

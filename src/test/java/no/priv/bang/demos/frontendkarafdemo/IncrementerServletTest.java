@@ -2,13 +2,35 @@ package no.priv.bang.demos.frontendkarafdemo;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.slf4j.LoggerFactory;
+
 import com.mockrunner.mock.web.MockHttpServletRequest;
 import com.mockrunner.mock.web.MockHttpServletResponse;
 
-import no.priv.bang.osgi.service.mocks.logservice.MockLogService;
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.read.ListAppender;
 
 class IncrementerServletTest {
+    private static Logger logger;
+    private ListAppender<ILoggingEvent> logappender;
+
+    @BeforeEach
+    void setup() {
+        logger = (Logger) LoggerFactory.getLogger(IncrementerServlet.class);
+        logappender = new ListAppender<>();
+        logappender.start();
+        logger.addAppender(logappender);
+    }
+
+    @AfterEach
+    void teardown() {
+        logger.detachAppender(logappender);
+    }
 
     @Test
     void doPostIncrement() throws Exception {
@@ -54,7 +76,6 @@ class IncrementerServletTest {
 
     @Test
     void doPostNotJson() throws Exception {
-        var logservice = new MockLogService();
         var valueNotJson = "<this>is <not>json</not></this>";
         var request = new MockHttpServletRequest()
             .setMethod("POST")
@@ -64,7 +85,6 @@ class IncrementerServletTest {
         var response = new MockHttpServletResponse();
 
         var servlet = new IncrementerServlet();
-        servlet.setLogService(logservice);
         servlet.service(request, response);
 
         assertEquals("application/json", response.getContentType());
@@ -77,7 +97,6 @@ class IncrementerServletTest {
 
     @Test
     void doPostIncrementWithWrongNameForValueProperty() throws Exception {
-        var logservice = new MockLogService();
         var valueAsJson = "{ \"currentValue\": 0, \"delta\": -1 }";
         var request = new MockHttpServletRequest()
             .setMethod("POST")
@@ -87,12 +106,11 @@ class IncrementerServletTest {
         var response = new MockHttpServletResponse();
 
         var servlet = new IncrementerServlet();
-        servlet.setLogService(logservice);
         servlet.service(request, response);
 
         assertEquals("application/json", response.getContentType());
         assertEquals(500, response.getStatus());
-        assertThat(logservice.getLogmessages()).isNotEmpty();
+        assertThat(logappender.list).isNotEmpty();
     }
 
 }

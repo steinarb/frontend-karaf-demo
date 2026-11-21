@@ -12,14 +12,11 @@ import org.junit.jupiter.api.Test;
 import com.mockrunner.mock.web.MockHttpServletRequest;
 import com.mockrunner.mock.web.MockHttpServletResponse;
 
-import no.priv.bang.osgi.service.mocks.logservice.MockLogService;
-
 
 class ReactServletTest {
 
     @Test
     void testDoGetSuccess() throws Exception {
-        var logservice = new MockLogService();
         var request = new MockHttpServletRequest()
             .setMethod("GET")
             .setRequestURL("http://localhost:8181/frontend-karaf-demo")
@@ -28,7 +25,6 @@ class ReactServletTest {
         var response = new MockHttpServletResponse();
 
         var servlet = new ReactServlet();
-        servlet.setLogService(logservice);
 
         servlet.service(request, response);
 
@@ -39,7 +35,6 @@ class ReactServletTest {
 
     @Test
     void testDoGetAddTrailingSlash() throws Exception {
-        var logservice = new MockLogService();
         var request = new MockHttpServletRequest()
             .setMethod("GET")
             .setRequestURL("http://localhost:8181/frontend-karaf-demo")
@@ -48,7 +43,6 @@ class ReactServletTest {
         var response = new MockHttpServletResponse();
 
         var servlet = new ReactServlet();
-        servlet.setLogService(logservice);
 
         servlet.service(request, response);
 
@@ -57,7 +51,6 @@ class ReactServletTest {
 
     @Test
     void testDoGetResponseThrowsIOException() throws Exception {
-        var logservice = new MockLogService();
         var request = mock(HttpServletRequest.class);
         when(request.getMethod()).thenReturn("GET");
         when(request.getRequestURL()).thenReturn(new StringBuffer("http://localhost:8181/frontend-karaf-demo"));
@@ -69,7 +62,6 @@ class ReactServletTest {
         when(response.getOutputStream()).thenReturn(streamThrowingIOException);
 
         var servlet = new ReactServlet();
-        servlet.setLogService(logservice);
 
         servlet.service(request, response);
 
@@ -78,7 +70,6 @@ class ReactServletTest {
 
     @Test
     void testDoGetResponseStreamMethodThrowsIOException() throws Exception {
-        var logservice = new MockLogService();
         var request = new MockHttpServletRequest()
             .setMethod("GET")
             .setRequestURL("http://localhost:8181/frontend-karaf-demo")
@@ -88,7 +79,6 @@ class ReactServletTest {
         when(response.getOutputStream()).thenThrow(IOException.class);
 
         var servlet = new ReactServlet();
-        servlet.setLogService(logservice);
 
         servlet.service(request, response);
 
@@ -97,7 +87,6 @@ class ReactServletTest {
 
     @Test
     void testDoGetResourceNotFound() throws Exception {
-        var logservice = new MockLogService();
         var request = new MockHttpServletRequest()
             .setMethod("GET")
             .setRequestURL("http://localhost:8181/frontend-karaf-demo/static/nosuchname.png")
@@ -106,7 +95,6 @@ class ReactServletTest {
         var response = new MockHttpServletResponse();
 
         var servlet = new ReactServlet();
-        servlet.setLogService(logservice);
 
         servlet.service(request, response);
 
